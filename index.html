@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>
+    Media Cloud Word Space Demo
+  </title>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <!-- <link href="static/styles.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- jQuery -->
+    <!-- TODO -->
+    <!-- bootstrap -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <div class="col-lg-7" id="svg-container">
+          <svg id="viz" style="width: 100%;">
+          </svg>
+        </div>
+    </div>
+  </body>
+  <script src="wordSpace.js"></script>
+  <script src="topic-1537-data.js"></script>
+  <script>
+    var options = {
+      width: 800,
+      height: 800,
+      cloudDomId: '#viz',
+      minColor: '#bab8b8',//'#d9d9d9',
+      maxColor: '#000000',
+      minFontSize: '18',
+      maxFontSize: '72',
+      xProperty: 'w2v_x',
+      yProperty: 'w2v_y',
+    };
+    generateWord2vecCloud(options, data);
+  </script>
+</html>
