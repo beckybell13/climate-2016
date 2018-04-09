@@ -3,9 +3,6 @@ var generateWord2vecCloud = function(options, wordList) {
   const MOUSEOVER_TRANSITION_TIME = 400;
 
   const svgContainerHeight = options.height;
-  var svgContainerWidth = 800;
-  // var svgContainerWidth = $('#svg-container').width();
-  var svgRect = document.getElementById('viz').getBoundingClientRect();
 
   // add in tf normalization
   const allSum = d3.sum(wordList, function(d) { return parseInt(d.count, 10); });
@@ -42,9 +39,6 @@ var generateWord2vecCloud = function(options, wordList) {
   var yScale = d3.scaleLinear()
     .domain([-maxRadius, maxRadius])
     .range([options.height - margin, margin]);
-
-  var centerOffsetX = (svgContainerWidth / 2) - xScale(0);
-  var centerOffsetY = (yScale(0) - (svgContainerHeight / 2));
 
   const radiusRatios = [1, .75, .5, .25];
   const backgroundColors = ['#fafafa', '#f5f5f5', '#f0f0f0', '#ebebeb'];
@@ -120,8 +114,7 @@ var generateWord2vecCloud = function(options, wordList) {
   // create cloud
   var svg = d3.select(options.cloudDomId)
     .attr('width', options.width)
-    .attr('height', options.height)
-    .attr('transform', 'translate(' + (centerOffsetX) + ', ' + (-centerOffsetY) + ')');
+    .attr('height', options.height);
 
   svg.call(zoom)
    .on("dblclick.zoom", function() {
